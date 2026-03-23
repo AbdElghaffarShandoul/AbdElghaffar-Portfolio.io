@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AbdeElghaffar CHANDOUL - Software Developer | Python Enthusiast | AI Explorer">
+    <meta name="keywords" content="Software Developer, Python, AI, Computer Science, Tunisia">
+    <meta name="author" content="AbdeElghaffar CHANDOUL">
+    <title>AbdeElghaffar CHANDOUL | Software Developer</title>
+    <style>
+        /* ============================================
+           CSS RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --background: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: var(--transition);
+        }
+
+        .navbar__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar__logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .navbar__menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navbar__link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar__link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .navbar__link:hover::after {
+            width: 100%;
+        }
+
+        .navbar__link:hover {
+            color: var(--primary);
+        }
+
+        .navbar__toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .navbar__toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        .hero__content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero__greeting {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        .hero__name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero__title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .hero__location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .hero__buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn--primary {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn--outline:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero__scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .hero__scroll svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           SECTION BASE STYLES
+           ============================================ */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section--alt {
+            background: var(--white);
+            max-width: 100%;
+        }
+
+        .section--alt .section__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section__subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about__text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .about__text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about__highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .about__highlight {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about__highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about__highlight-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .about__highlight-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        .about__highlight h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .about__highlight p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* ============================================
+           SKILLS SECTION
+           ============================================ */
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skills__category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skills__category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skills__category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skills__category-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skills__category-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        .skill {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill__header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill__name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .skill__percentage {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .skill__bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill__progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        .skill:hover .skill__progress {
+            filter: brightness(1.1);
+        }
+
+        /* ============================================
+           PROJECTS SECTION
+           ============================================ */
+        .projects__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-card__header {
+            background: var(--gradient);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .project-card__icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card__icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--white);
+        }
+
+        .project-card__status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .project-card__status--complete {
+            background: #10b981;
+            color: var(--white);
+        }
+
+        .project-card__status--development {
+            background: #f59e0b;
+            color: var(--white);
+        }
+
+        .project-card__status--planned {
+            background: #6b7280;
+            color: var(--white);
+        }
+
+        .project-card__body {
+            padding: 1.5rem;
+        }
+
+        .project-card__title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .project-card__description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .project-card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card__tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card__links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .project-card__link:hover {
+            color: var(--secondary);
+        }
+
+        .project-card__link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ============================================
+           EDUCATION SECTION
+           ============================================ */
+        .education__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .education__main {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education__main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .education__institution {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education__university {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .education__degree {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education__period {
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .education__courses h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .education__courses-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .education__course {
+            padding: 0.375rem 0.875rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================
+           LANGUAGES SECTION
+           ============================================ */
+        .languages__table-container {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .languages__table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .languages__table thead {
+            background: var(--gradient);
+        }
+
+        .languages__table th {
+            padding: 1.25rem 1.5rem;
+            color: var(--white);
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .languages__table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .languages__table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .languages__table tbody tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .languages__table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .proficiency-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .proficiency-badge--native {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .proficiency-badge--intermediate {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .proficiency-badge--beginner {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* ============================================
+           CERTIFICATIONS SECTION
+           ============================================ */
+        .certifications__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--primary);
+        }
+
+        .certification-card__icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .certification-card__icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--white);
+        }
+
+        .certification-card__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-card__issuer {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-card__date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact__info {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact__info-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact__info-text {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact__details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact__detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact__detail-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact__detail-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--white);
+        }
+
+        .contact__detail-content h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact__detail-content a,
+        .contact__detail-content p {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact__detail-content a:hover {
+            color: var(--primary);
+        }
+
+        .contact__availability {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact__availability-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact__availability-list {
+            list-style: none;
+        }
+
+        .contact__availability-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .contact__availability-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact__availability-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .contact__social {
+            margin-top: 2rem;
+        }
+
+        .contact__social-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact__social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact__social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .contact__social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact__social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer__content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer__text {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer__copyright {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           BACK TO TOP BUTTON
+           ============================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            border: none;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .projects__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .certifications__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .education__container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact__container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar__menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+            }
+
+            .navbar__menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .navbar__toggle {
+                display: flex;
+            }
+
+            .hero__name {
+                font-size: 2.5rem;
+            }
+
+            .hero__title {
+                font-size: 1.2rem;
+            }
+
+            .hero__buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section__title {
+                font-size: 2rem;
+            }
+
+            .about__content {
+                grid-template-columns: 1fr;
+            }
+
+            .about__highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .skills__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages__table-container {
+                overflow-x: auto;
+            }
+
+            .languages__table {
+                min-width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero__name {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="navbar__container">
+            <a href="#" class="navbar__logo">AC</a>
+            <ul class="navbar__menu" id="navbar-menu">
+                <li><a href="#about" class="navbar__link">About</a></li>
+                <li><a href="#skills" class="navbar__link">Skills</a></li>
+                <li><a href="#projects" class="navbar__link">Projects</a></li>
+                <li><a href="#education" class="navbar__link">Education</a></li>
+                <li><a href="#languages" class="navbar__link">Languages</a></li>
+                <li><a href="#certifications" class="navbar__link">Certifications</a></li>
+                <li><a href="#contact" class="navbar__link">Contact</a></li>
+            </ul>
+            <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <header class="hero" id="hero">
+        <div class="hero__content">
+            <p class="hero__greeting">👋 Hello, I'm</p>
+            <h1 class="hero__name">AbdeElghaffar CHANDOUL</h1>
+            <p class="hero__title">Software Developer | Python Enthusiast | AI Explorer</p>
+            <div class="hero__buttons">
+                <a href="mailto:chandoul8abdelghaffar@gmail.com" class="btn btn--primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Email Me
+                </a>
+                <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/abd-elghaffar-shandoul" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="section" id="about">
+        <div class="section__header fade-in">
+            <h2 class="section__title">About Me</h2>
+            <p class="section__subtitle">Passionate about creating innovative solutions through code</p>
+        </div>
+        <div class="about__content fade-in">
+            <div class="about__text">
+                <h3>A Dedicated Computer Science Student & Developer</h3>
+                <p>
+                    I'm a 2nd-year Computer Science student at ISIMed, University of Gabes, with a deep passion for software development, Python programming, and artificial intelligence. Based in Mednine, Tunisia, I'm constantly exploring new technologies and building projects that solve real-world problems.
+                </p>
+                <p>
+                    My journey in tech has led me to develop skills in web development, database management, and AI applications. I believe in continuous learning and actively participate in hackathons and collaborative projects to enhance my expertise.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me exploring the latest AI trends, contributing to open-source projects, or learning new languages (both programming and human!).
+                </p>
+            </div>
+            <div class="about__highlights">
+                <div class="about__highlight">
+                    <div class="about__highlight-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                    </div>
+                    <h4>Clean Code</h4>
+                    <p>Writing maintainable, efficient code</p>
+                </div>
+                <div class="about__highlight">
+                    <div class="about__highlight-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h4>Problem Solving</h4>
+                    <p>Finding creative solutions to challenges</p>
+                </div>
+                <div class="about__highlight">
+                    <div class="about__highlight-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <h4>Team Player</h4>
+                    <p>Thriving in collaborative environments</p>
+                </div>
+                <div class="about__highlight">
+                    <div class="about__highlight-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <h4>Agile Mindset</h4>
+                    <p>SCRUM methodology practitioner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS SECTION
+         ============================================ -->
+    <section class="section--alt" id="skills">
+        <div class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
+            <div class="section__header fade-in">
+                <h2 class="section__title">Technical Skills</h2>
+                <p class="section__subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills__grid fade-in">
+                <!-- Programming Languages -->
+                <div class="skills__category">
+                    <h3 class="skills__category-title">
+                        <div class="skills__category-icon">
+                            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                        </div>
+                        Programming Languages
+                    </h3>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Python</span>
+                            <span class="skill__percentage">85%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">C</span>
+                            <span class="skill__percentage">70%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Bash</span>
+                            <span class="skill__percentage">60%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Java</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">C#</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">PHP</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">JavaScript</span>
+                            <span class="skill__percentage">40%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="40"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="skills__category">
+                    <h3 class="skills__category-title">
+                        <div class="skills__category-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        Web Technologies
+                    </h3>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">HTML5</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">CSS3</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Responsive Design</span>
+                            <span class="skill__percentage">50%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="50"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skills__category">
+                    <h3 class="skills__category-title">
+                        <div class="skills__category-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-5c0 .5-2.13 2-6 2s-6-1.5-6-2V9.77C7.61 10.55 9.72 11 12 11s4.39-.45 6-1.23V12z"/></svg>
+                        </div>
+                        Databases
+                    </h3>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">MySQL</span>
+                            <span class="skill__percentage">75%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Oracle 10g/11g</span>
+                            <span class="skill__percentage">65%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="65"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Methodologies -->
+                <div class="skills__category">
+                    <h3 class="skills__category-title">
+                        <div class="skills__category-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                        </div>
+                        Tools & Methodologies
+                    </h3>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">SCRUM/Agile</span>
+                            <span class="skill__percentage">70%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Linux/Unix</span>
+                            <span class="skill__percentage">65%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">AI Prompt Engineering</span>
+                            <span class="skill__percentage">58%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="58"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill__header">
+                            <span class="skill__name">Git & GitHub</span>
+                            <span class="skill__percentage">45%</span>
+                        </div>
+                        <div class="skill__bar">
+                            <div class="skill__progress" data-progress="45"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS SECTION
+         ============================================ -->
+    <section class="section" id="projects">
+        <div class="section__header fade-in">
+            <h2 class="section__title">Projects</h2>
+            <p class="section__subtitle">Showcasing my work and creative solutions</p>
+        </div>
+        <div class="projects__grid fade-in">
+            <!-- Project 1 -->
+            <article class="project-card">
+                <div class="project-card__header">
+                    <div class="project-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                    </div>
+                    <span class="project-card__status project-card__status--development">In Development</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Food-Based Cultural Exchange Platform</h3>
+                    <p class="project-card__description">
+                        A social platform connecting food enthusiasts worldwide through recipe sharing and cultural storytelling. Features include user profiles, real-time chat, comments, and reactions.
+                    </p>
+                    <div class="project-card__tags">
+                        <span class="project-card__tag">Python</span>
+                        <span class="project-card__tag">Django</span>
+                        <span class="project-card__tag">MySQL</span>
+                        <span class="project-card__tag">HTML/CSS</span>
+                    </div>
+                    <div class="project-card__links">
+                        <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+                <div class="project-card__header">
+                    <div class="project-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <span class="project-card__status project-card__status--complete">Complete</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">Professional Portfolio Website</h3>
+                    <p class="project-card__description">
+                        A responsive portfolio website showcasing my skills, projects, and experience. Deployed on GitHub Pages with modern design and smooth animations.
+                    </p>
+                    <div class="project-card__tags">
+                        <span class="project-card__tag">HTML5</span>
+                        <span class="project-card__tag">CSS3</span>
+                        <span class="project-card__tag">JavaScript</span>
+                        <span class="project-card__tag">GitHub Pages</span>
+                    </div>
+                    <div class="project-card__links">
+                        <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <div class="project-card__header">
+                    <div class="project-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <span class="project-card__status project-card__status--planned">Coming Soon</span>
+                </div>
+                <div class="project-card__body">
+                    <h3 class="project-card__title">AI-Powered Project</h3>
+                    <p class="project-card__description">
+                        Currently exploring new ideas in artificial intelligence and machine learning. Stay tuned for an exciting project that leverages the power of AI.
+                    </p>
+                    <div class="project-card__tags">
+                        <span class="project-card__tag">Python</span>
+                        <span class="project-card__tag">AI/ML</span>
+                        <span class="project-card__tag">Innovation</span>
+                    </div>
+                    <div class="project-card__links">
+                        <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            Follow on GitHub
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============================================
+         EDUCATION SECTION
+         ============================================ -->
+    <section class="section--alt" id="education">
+        <div class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
+            <div class="section__header fade-in">
+                <h2 class="section__title">Education</h2>
+                <p class="section__subtitle">My academic journey and qualifications</p>
+            </div>
+            <div class="education__container fade-in">
+                <div class="education__main">
+                    <h3 class="education__institution">High Institution of Informatics and Multimedia of Mednine</h3>
+                    <p class="education__university">University of Gabes, Tunisia</p>
+                    <p class="education__degree">Bachelor of Science in Computer Science</p>
+                    <div class="education__period">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                        </svg>
+                        Currently in 2nd Year
+                    </div>
+                    <div class="education__courses">
+                        <h4>Relevant Coursework</h4>
+                        <div class="education__courses-list">
+                            <span class="education__course">KDD</span>
+                            <span class="education__course">Inverted Indexing</span>
+                            <span class="education__course">Artificial Intelligence</span>
+                            <span class="education__course">DBMS</span>
+                            <span class="education__course">SCRUM</span>
+                            <span class="education__course">C Programming</span>
+                            <span class="education__course">Python</span>
+                            <span class="education__course">Java</span>
+                            <span class="education__course">C#</span>
+                            <span class="education__course">PHP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="education__additional">
+                    <div class="about__highlight" style="margin-bottom: 1.5rem;">
+                        <div class="about__highlight-icon">
+                            <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                        </div>
+                        <h4>Academic Focus</h4>
+                        <p>Specializing in software development and AI technologies</p>
+                    </div>
+                    <div class="about__highlight" style="margin-bottom: 1.5rem;">
+                        <div class="about__highlight-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        </div>
+                        <h4>Hackathon Participant</h4>
+                        <p>ISIMed Hackathon V3.0 Certificate Holder</p>
+                    </div>
+                    <div class="about__highlight">
+                        <div class="about__highlight-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                        </div>
+                        <h4>Expected Graduation</h4>
+                        <p>2027 - Bachelor's Degree</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         LANGUAGES SECTION
+         ============================================ -->
+    <section class="section" id="languages">
+        <div class="section__header fade-in">
+            <h2 class="section__title">Languages</h2>
+            <p class="section__subtitle">Communication skills across different languages</p>
+        </div>
+        <div class="languages__table-container fade-in">
+            <table class="languages__table" role="table" aria-label="Language proficiency table">
+                <thead>
+                    <tr>
+                        <th scope="col">Language</th>
+                        <th scope="col">Proficiency</th>
+                        <th scope="col">Speaking</th>
+                        <th scope="col">Reading</th>
+                        <th scope="col">Writing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arabic</strong></td>
+                        <td><span class="proficiency-badge proficiency-badge--native">Native</span></td>
+                        <td>Fluent</td>
+                        <td>Fluent</td>
+                        <td>Fluent</td>
+                    </tr>
+                    <tr>
+                        <td><strong>English</strong></td>
+                        <td><span class="proficiency-badge proficiency-badge--intermediate">Intermediate</span></td>
+                        <td>Normal</td>
+                        <td>Normal</td>
+                        <td>Normal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>French</strong></td>
+                        <td><span class="proficiency-badge proficiency-badge--intermediate">Intermediate</span></td>
+                        <td>Normal</td>
+                        <td>Normal</td>
+                        <td>Normal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>German</strong></td>
+                        <td><span class="proficiency-badge proficiency-badge--beginner">Beginner</span></td>
+                        <td>Limited</td>
+                        <td>Basic</td>
+                        <td>Basic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Korean</strong></td>
+                        <td><span class="proficiency-badge proficiency-badge--beginner">Beginner</span></td>
+                        <td>Limited</td>
+                        <td>Basic</td>
+                        <td>Basic</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CERTIFICATIONS SECTION
+         ============================================ -->
+    <section class="section--alt" id="certifications">
+        <div class="section" style="padding-top: 5rem; padding-bottom: 5rem;">
+            <div class="section__header fade-in">
+                <h2 class="section__title">Certifications</h2>
+                <p class="section__subtitle">Professional certifications and achievements</p>
+            </div>
+            <div class="certifications__grid fade-in">
+                <article class="certification-card">
+                    <div class="certification-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3 class="certification-card__title">ISIMed Hackathon V3.0</h3>
+                    <p class="certification-card__issuer">ISIMed</p>
+                    <p class="certification-card__date">Participation Certificate</p>
+                </article>
+                <article class="certification-card">
+                    <div class="certification-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                    </div>
+                    <h3 class="certification-card__title">IELTS Preparation</h3>
+                    <p class="certification-card__issuer">Self-Study</p>
+                    <p class="certification-card__date">In Progress (2026)</p>
+                </article>
+                <article class="certification-card">
+                    <div class="certification-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    </div>
+                    <h3 class="certification-card__title">AI Prompt Engineering</h3>
+                    <p class="certification-card__issuer">Self-Directed Learning</p>
+                    <p class="certification-card__date">Ongoing</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="section" id="contact">
+        <div class="section__header fade-in">
+            <h2 class="section__title">Get In Touch</h2>
+            <p class="section__subtitle">Let's connect and discuss opportunities</p>
+        </div>
+        <div class="contact__container fade-in">
+            <div class="contact__info">
+                <h3 class="contact__info-title">Contact Information</h3>
+                <p class="contact__info-text">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the following channels.
+                </p>
+                <div class="contact__details">
+                    <div class="contact__detail">
+                        <div class="contact__detail-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact__detail-content">
+                            <h4>Email</h4>
+                            <a href="mailto:chandoul8abdelghaffar@gmail.com">chandoul8abdelghaffar@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact__detail">
+                        <div class="contact__detail-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact__detail-content">
+                            <h4>Location</h4>
+                            <p>Mednine, Tunisia</p>
+                        </div>
+                    </div>
+                    <div class="contact__detail">
+                        <div class="contact__detail-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </div>
+                        <div class="contact__detail-content">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer">github.com/AbdElghaffarShandoul</a>
+                        </div>
+                    </div>
+                    <div class="contact__detail">
+                        <div class="contact__detail-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        <div class="contact__detail-content">
+                            <h4>LinkedIn</h4>
+                            <a href="https://linkedin.com/in/abd-elghaffar-shandoul" target="_blank" rel="noopener noreferrer">linkedin.com/in/abd-elghaffar-shandoul</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact__availability">
+                <h3 class="contact__availability-title">Availability</h3>
+                <ul class="contact__availability-list">
+                    <li class="contact__availability-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Open to freelance projects
+                    </li>
+                    <li class="contact__availability-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Available for internship opportunities
+                    </li>
+                    <li class="contact__availability-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Interested in collaborative projects
+                    </li>
+                    <li class="contact__availability-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Looking for remote work opportunities
+                    </li>
+                </ul>
+                <div class="contact__social">
+                    <h4 class="contact__social-title">Connect With Me</h4>
+                    <div class="contact__social-links">
+                        <a href="mailto:chandoul8abdelghaffar@gmail.com" class="contact__social-link" aria-label="Send email">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </a>
+                        <a href="https://github.com/AbdElghaffarShandoul" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="GitHub profile">
+                            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/abd-elghaffar-shandoul" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="LinkedIn profile">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__logo">AbdeElghaffar CHANDOUL</div>
+            <p class="footer__text">Software Developer | Python Enthusiast | AI Explorer</p>
+            <p class="footer__copyright">
+                &copy; <span id="copyright-year"></span> AbdeElghaffar CHANDOUL. All rights reserved.
+                <br>
+                <small>Last updated: <span id="last-updated"></span></small>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         BACK TO TOP BUTTON
+         ============================================ -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ============================================
+        // MOBILE NAVIGATION TOGGLE
+        // ============================================
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            const isExpanded = navbarMenu.classList.contains('active');
+            navbarToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.navbar__link').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+                navbarToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ============================================
+        // SKILL BAR ANIMATION
+        // ============================================
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill__progress');
+            skillBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                bar.style.width = progress + '%';
+            });
+        }
+
+        // ============================================
+        // SCROLL ANIMATIONS (Intersection Observer)
+        // ============================================
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger skill bar animation when skills section is visible
+                    if (entry.target.closest('#skills') || entry.target.classList.contains('skills__grid')) {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ============================================
+        // BACK TO TOP BUTTON
+        // ============================================
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ============================================
+        // DYNAMIC COPYRIGHT YEAR
+        // ============================================
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // ============================================
+        // LAST UPDATED DATE
+        // ============================================
+        document.getElementById('last-updated').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // ============================================
+        // NAVBAR BACKGROUND ON SCROLL
+        // ============================================
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // ============================================
+        // INITIAL PAGE LOAD ANIMATION
+        // ============================================
+        window.addEventListener('load', () => {
+            // Trigger initial animations after a short delay
+            setTimeout(() => {
+                document.querySelectorAll('.hero__content > *').forEach((el, index) => {
+                    el.style.animationPlayState = 'running';
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
